@@ -1,23 +1,21 @@
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
 class Matrix {
 
 private:
-	int values[];
+	int values[][];
 	int size; //simply store the size upon creation instead of repeatedly checking
-
-	int * matrixP;
-	//in const5ructor, depending on value of n, go:
-	//Matrix = new int [n*n]; 
-	//simply use offseets for row and col
+	int numRows; //to keep track of when looping
+	int numCols; //to keep track of when looping
 
 public:
 	//constructors
 	Matrix();
 	Matrix(int);
-	Matrix(int[]); //what happens if size not square root? check before calling?s
+	Matrix(int[]); //throw invalid arg exception if size of array passed != square
 
 	//destructor
 	~Matrix();
